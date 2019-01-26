@@ -3,12 +3,12 @@ This bot sample is for v3 Node.js SDK, where intention was to control user input
 
 
 This scenario is where, when tried out from a Teams' Team Channel, i.e. invoked as a Team app. What happens is like, for every text input, the message used to look like: 
-1. <at>nodebotapp</at> hello
-2. <at>nodebotapp</at> please help me.
+1. ```<at>nodebotapp</at>``` hello
+2. ```<at>nodebotapp</at>``` please help me.
 
 Because of this sort of input string passed to LuisRecognizer, the same text used to passed to the LUIS endpoint and found like: the text itself was unexpected for the LUIS endpoint.
 
-Hence, the solution is to find a way to control the input string, so that LUIS endpoint can be passed with stripped or expected text. Out here, I just had to strip off (following string inerpolation operation) **<at>nodebotapp</at>**, and pass the remaining text to LUIS service app. It's all managed via a function call for **bot.use**, and parse the **session.message.text** string.
+Hence, the solution is to find a way to control the input string, so that LUIS endpoint can be passed with stripped or expected text. Out here, I just had to strip off (following string inerpolation operation) **```<at>nodebotapp</at>```**, and pass the remaining text to LUIS service app. It's all managed via a function call for **bot.use**, and parse the **session.message.text** string.
 
 ## LUIS app recognizer preparation
 
